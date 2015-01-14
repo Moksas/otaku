@@ -24,6 +24,18 @@
  *               echo ImageHash::isSimilar($hashA, $hashB);
  *                  */
 
+	function docompare($comparefile){
+		require_once("db_const.php");
+		$result=$mysqli->query("SELECT * FROM `standard` ");
+		$hashA=ImageHash::pHash($comparefile);
+		$finalresult=0;
+		while($rows=$result->fetch_array()){
+			echo $rows['id']."\n";
+			$hashB=ImageHash::pHash($rows['picd']);
+			$finalresult+= ImageHash::isSimilar($hashA, $hashB);
+		}
+		return $finalresult;
+	} 
 
 class ImageHash {
 
