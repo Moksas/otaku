@@ -26,34 +26,25 @@ jQuery(window).load(function(){
 	</div>
 
 	<div id="pricing-table" class="clear" style="overflow-x:auto">
-		<div class="plan">
-			<h3>2015/01/14<span>59</span></h3>
-			<img src="1.jpg" style="width:180px"/>
-		</div>
-		<div class="plan" id="most-popular">
-			<h3>2014/12/31<span>29</span></h3>
-			<img src="2.jpg" style="width:180px"/>
-		</div>
-		<div class="plan">
-            <h3>2014/11/08<span>17</span></h3>
-            <img src="3.jpg" style="width:180px"/>
-        </div>
-		<div class="plan">
-            <h3>2014/11/08<span>17</span></h3>
-            <img src="3.jpg" style="width:180px"/>
-        </div>
-		<div class="plan">
-            <h3>2014/11/08<span>17</span></h3>
-            <img src="3.jpg" style="width:180px"/>
-        </div>
-		<div class="plan">
-			<h3>2014/11/08<span>17</span></h3>
-			<img src="3.jpg" style="width:180px"/>
-		</div>
-		<div class="plan">
-			<h3>2014/10/25<span>9</span></h3>
-			<img src="4.jpg" style="width:180px"/>
-		</div> 	
-	</div>
+<?php
+	session_start();
+	 require_once("db_const.php");
+	$sql="SELECT *FROM `userpic`WHERE `user` = '".$_SESSION['username']."'";
+	 $result=$mysqli->query($sql);
+	$i=1;
+	 while($rows=$result->fetch_array())
+	 {
+	 		echo '<div class="item h'.$i.'">';
+				echo '<div class="plan">';
+			
+				echo '<h3>'.$rows['uploadtime'].'<span>'.$rows['score'].'</span></h3>';
+				echo '<img src="../newupload/'.$rows['filename'].'" style="width:180px">';
+				echo '</div>';
+			echo '</div>';
+			++$i;
+	 		if($i>3) $i=1;
+	 
+	 }
+?>	
 </body>
 </html>
