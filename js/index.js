@@ -62,7 +62,7 @@ $( function(ready) {
 	});
 });
 
-
+/*
 function userSubmit(event){
 	event.stopPropagation();
 	event.preventDefault();
@@ -91,6 +91,7 @@ function userSubmit(event){
 ////		alert("無法更新: "+jqXHR.responseText);
 //	});
 }
+*/
 
  function showUploadedItem (source) {
  //	var list = document.getElementById("image-list"),
