@@ -22,15 +22,15 @@ $( function(ready) {
 				};
 				reader.readAsDataURL(file);
 			}
-			if (formdata) {
-				formdata.append("images[]", file);
-			}
+	if (formdata) {
+		formdata.append("file[]", file);
+	}
 		
 			if (formdata) {
 				$.ajax({
 					url: "upload.php",
 					type: "POST",
-					data: file,
+					data: formdata,
 					processData: false,
 					contentType: false,
 					success: function (res) {
