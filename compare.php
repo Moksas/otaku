@@ -43,7 +43,9 @@
 		
 		if($returnresult<=0)
 			$returnresult=0;
-
+  $sql="UPDATE `clothes`.`userpic` SET `score` = '".$returnresult."' WHERE `userpic`.
+	              `filename` ='".$_SESSION['CompareFile']."'";
+		$result=$mysqli->query($sql);
 		echo $returnresult;
 	 
 
