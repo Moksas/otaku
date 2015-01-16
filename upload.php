@@ -7,7 +7,7 @@ $limitedext = array("bmp","gif","jpg","jpeg","png");//³]©w¥i¤W¶ÇªºÀÉ®×Ãþ«¬(°ÆÀÉ¦
 
 $File_Extension = explode(".", $_FILES['file']['name'][0]); 
 $File_Extension = $File_Extension[count($File_Extension)-1];
-$_SESSION['username']='testname';
+//$_SESSION['username']='testname';
   //  echo'Hello world';
 if(!(isset($_SESSION['username'])))
 {
@@ -67,7 +67,7 @@ else {
 	function insertfiletodatabase($filename,$username){
 		require_once("db_const.php");
 		$t=getdate();
-		$timestr=$t["year"]."-".$t["mon"]."-".$t["mday"]." ".$t["hours"].":".$t["minutes"].":".$t["seconds"];
+		$timestr=$t["year"]."-".$t["mon"]."-".$t["mday"];
 		$sql="INSERT INTO `clothes`.`userpic` (`fid` ,`user` ,`filename` ,`score`,`uploadtime`)
 			VALUES (NULL , '".$username."', '".$filename."',NULL, '".$timestr."')";
 //		echo "</br>".$timestr;
