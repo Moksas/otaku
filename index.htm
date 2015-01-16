@@ -6,10 +6,13 @@
 	<link rel="stylesheet" type="text/css" href="css/login.css"/>
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
 	<link rel="stylesheet" type="text/css" href="css/jquery.modal.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
 	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 	<script src="js/jquery.jodometer.js" type="text/javascript"></script>
 	<script src="js/jquery.modal.min.js" type="text/javascript"></script>
 	<script src="js/login.js" type="text/javascript"></script>
+	<script src="js/index.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function(){
             $('.counter2').jOdometer({increment: 9, counterStart:'0000', counterEnd:'9999', numbersImage: 'images/jodometer-numbers.png', delayTime: 100, speed: 250, spaceNumbers: 2}),
@@ -34,6 +37,7 @@
 	</style>
 </head>
 <body style="background-color:black;height:100%;width:100%;overflow:hidden">
+
 	<button id="But">haha</button>
 	<a id="Loginbutton"  href="#loginform" rel="modal:open" onClick="loginOpen();">Login</a>
 	<div id="logo" style="width:100%;text-align:center">
@@ -44,6 +48,25 @@
 		<img id="glass" src="images/glass-right.png" style="position:absolute;left:48%;top:17.5%;width:17%" />
 		<div class="counter2"></div>
 	</div>
+		
+	<div id="upload_button" style="top:250px;right:120px;position:fixed">
+		<form action="upload.php" id="FormUpload" method="post" enctype="multipart/form-data">
+			<label for="file-input">
+				<img id="file-img" src="images/dragonball.png" style="width:450px"/>
+			</label>
+			<input type="file" name="file" id="file-input" />
+		</form>
+	</div>
+
+    
+  
+			<!--
+  	<a href="#"><button class="boton"><input type="file" id="imgfile" name="imgfile" /></button></a>
+  	<div class="footer"><h5>Developed by <a href="#">Otaku Fashion</a></h5>
+  	<div class="flow">
+      <boton class="copyright" title="Copyright © 2014 WP">©</boton>
+  </div>
+  -->
 
 	<div id="loginform" class="modal">
 		<div id="facebook">
