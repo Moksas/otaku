@@ -1,47 +1,47 @@
 $( function(ready) {
-// 	var input = document.getElementById("file-input"), formdata = false;
-//
-// 	if (window.FormData) {
-// 		formdata = new FormData();
-// 	//	document.getElementById("btn").style.display = "none";
-// 	}
-//
-//	if (input.addEventListener) {
-// 		input.addEventListener("change", function (evt) {
-//			var img, reader, file;
-//
-//		 	file = this.files[0];
-//	
-//		 	if (!!file.type.match(/image.*/)) {
-//	
-//		 	} 
-//			if ( window.FileReader ) {
-//				reader = new FileReader();
-//				reader.onloadend = function (e) { 
-//					showUploadedItem(e.target.result);
-//				};
-//				reader.readAsDataURL(file);
-//			}
-//	if (formdata) {
-//		formdata.append("file[]", file);
-//	}
-//		
-//			if (formdata) {
-//				$.ajax({
-//					url: "upload.php",
-//					type: "POST",
-//					data: formdata,
-//					processData: false,
-//					contentType: false,
-//					success: function (res) {
-//			//			document.getElementById("response").innerHTML = res; 
-//						alert(res);
-//					}
-//				});
-//			}
-//
-//	 	}, false);
-// 	}
+ 	var input = document.getElementById("file-input"), formdata = false;
+
+ 	if (window.FormData) {
+ 		formdata = new FormData();
+ 	//	document.getElementById("btn").style.display = "none";
+ 	}
+
+	if (input.addEventListener) {
+ 		input.addEventListener("change", function (evt) {
+			var img, reader, file;
+
+		 	file = this.files[0];
+	
+		 	if (!!file.type.match(/image.*/)) {
+	
+		 	} 
+			if ( window.FileReader ) {
+				reader = new FileReader();
+				reader.onloadend = function (e) { 
+					showUploadedItem(e.target.result);
+				};
+				reader.readAsDataURL(file);
+			}
+	if (formdata) {
+		formdata.append("file[]", file);
+	}
+		
+			if (formdata) {
+				$.ajax({
+					url: "upload.php",
+					type: "POST",
+					data: formdata,
+					processData: false,
+					contentType: false,
+					success: function (res) {
+			//			document.getElementById("response").innerHTML = res; 
+						alert(res);
+					}
+				});
+			}
+
+	 	}, false);
+ 	}
 
   	$('.counter2').jOdometer({increment: 9, counterStart:'00000', numbersImage: 'images/jodometer-numbers.png', delayTime: 100, speed: 250, spaceNumbers: 2});
 	

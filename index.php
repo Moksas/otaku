@@ -30,6 +30,23 @@
 			top: 35%;
 			left: 50%;
 		}
+		.RightButton{
+			height:18%;
+			margin:4%;
+			z-index: 100;
+			display: none;
+		}
+		.RightButton:hover{
+			cursor: pointer;
+		}
+		.RightButton > p{
+			-ms-transform: rotate(90deg); /* IE 9 */
+			-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+			transform: rotate(90deg);
+			right: 10px;
+			color: white;
+			position: fixed;
+		}
 	</style>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -48,42 +65,49 @@ $(document).ready(function() {
 	});
 
 	$("#Menu").click(function(){
-		if($('#navbar').css('display') == 'none')
-			$('#navbar').show();
-		else
-			$('#navbar').hide();
+		if($('#navbar').css('right') == '-150px'){
+			$('.RightButton').show();
+			$('#navbar').animate({right:"50"},1000);
+		}
+		else{
+			$('#navbar').animate({right:"-150"},1000);
+			$('.RightButton').hide();
+		}
 	});
 });
 </script>
 </head>
+<?php session_start(); ?>
 <body style="background-color:black;height:100%;width:100%;overflow:hidden">
 
-	<button id="Start">Start</button>
-	<button id="Menu" >Menu</button>
-	<a id="Loginbutton"  href="#loginform" rel="modal:open" onClick="loginOpen();">Login</a>
+	<button id="Menu">Menu</button>
 	<div id="logo" style="width:100%;text-align:center">
 		<img src="images/logo.png" style="height:200px;width:90%;" />
 	</div>
-	<div id="navbar" style="display:none;height:100%">
-		<div  id="go_home" style="top:2%;right:70px;position:fixed;height:15%;">
+	<div id="navbar" style="height:100%;right:-150px;top:10px;position:fixed;">
+		<div class="RightButton" id="go_home" >
+		    	<p>Home</p>
 				<img src="images/gokun.png" style="height:100%"/>
-		    	<!--<p style="color:black;">Home</p>-->
 		</div>
-		<div  id="Login" style="top:22%;right:70px;position:fixed;height:15%">
+		<div class="RightButton" id="Login" <?php if(!$_SESSION['id']) echo 'style="display:none"'; ?>>
+		    	<p>Login</p>
+			<a id="Loginbutton"  href="#loginform" rel="modal:open" onClick="loginOpen();">
 				<img src="images/gohan.png" style="height:100%"/>
-		    	<!--<p style="color:black;">Login</p>-->
+			</a>
 		</div>
-		<div  id="Logout" style="top:42%;right:70px;position:fixed;height:15%">
+		<div class="RightButton" id="Logout" onClick="location.replace('logout.php');" <?php if($_SESSION['id']) echo 'style="display:none"'; ?>>
+		    	<p>Logout</p>
 				<img src="images/vegeta.png" style="height:100%"/>
-		    	<!--<p style="color:black;">Logout</p>-->
 		</div>
-		<div id="Upload" style="top:62%;right:70px;position:fixed;height:15%">
+		<div class="RightButton" id="Upload" >
+		    <p>Upload</p>
+			<label for="file-input">
 				<img src="images/trunks.png" style="height:100%"/>
-		    	<!--<p style="color:black;">Upload</p>-->
+			</label>
 		</div>
-		<div id="Record" style="top:82%;right:70px;position:fixed;height:15%">
+		<div class="RightButton" id="Record" >
+		    	<p>Record</p>
 				<img src="images/beko.png" style="height:100%"/>
-		    	<!--<p style="color:black;">Record</p>-->
 		</div>
 	</div>
 	<div id="back" style="height:100%;z-index:-1;top:150px;left:-200px;position:fixed" >
@@ -95,26 +119,18 @@ $(document).ready(function() {
 	<div>
 		
 	</div>
-	<img src="" style="width:200px;top:330px;right:120px;position:fixed" id="file-img"/>
-	<!--	
+
 	<div id="upload_button" style="top:330px;right:120px;position:fixed">
 
 		<form action="upload.php" id="FormUpload" method="post" enctype="multipart/form-data">
 			<label for="file-input">
-				<img id="file-img" src="images/dragonball.png" style="width:200px"/>
+				<img id="file-img" src="" style="width:200px;z-index:0"/>
 			</label>
 			
 
 			<input type="file" name="file" id="file-input" />
 		</form>
 	</div>
-
-    <div  style="top:500px;right:70px;position:fixed">
-
-    	<h2 style="color:white;">Click dragonball to upload</h2>
-
-	</div>
--->
 			<!--
   	<a href="#"><button class="boton"><input type="file" id="imgfile" name="imgfile" /></button></a>
   	<div class="footer"><h5>Developed by <a href="#">Otaku Fashion</a></h5>
