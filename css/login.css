@@ -8,7 +8,7 @@ position:relative;
 margin:0 auto;
 }
 
-input
+#loginform input
 {
 display:block;
 margin:0px auto 15px;
@@ -27,7 +27,7 @@ color:#929999;
 transition:0.5s ease; 
 }
 
-input:focus
+#loginform input:focus
 {
 	-webkit-transition:0.5s ease;
 	-moz-transition:0.5s ease;
@@ -37,7 +37,7 @@ transition:0.5s ease;
 		   box-shadow: 0px 0px 5px 1px #161718;
 }
 
-button
+#loginform button
 {
 background: #ff5f32;
 			border-radius:50%;
@@ -59,7 +59,7 @@ top: 54px;
 transition:0.5s ease;
 }
 
-button:hover
+#loginform button:hover
 {
 background:#222526;
 		   border-color:#ff5f32;
@@ -70,7 +70,7 @@ background:#222526;
 transition:0.5s ease;
 }
 
-button i
+#loginform button i
 {
 	font-size:20px;
 	-webkit-transition:0.5s ease;
@@ -80,7 +80,7 @@ button i
 transition:0.5s ease;
 }
 
-button:hover i
+#loginform button:hover i
 {
 color:#ff5f32;
 	  -webkit-transition:0.5s ease;
@@ -90,20 +90,20 @@ color:#ff5f32;
 transition:0.5s ease;
 }
 
-*:focus{outline:none;}
-::-webkit-input-placeholder {
+#loginform *:focus{outline:none;}
+#loginform ::-webkit-input-placeholder {
 color:#929999;
 }
 
-:-moz-placeholder { /* Firefox 18- */
+#loginform :-moz-placeholder { /* Firefox 18- */
 color:#929999; 
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
+#loginform ::-moz-placeholder {  /* Firefox 19+ */
 color:#929999;  
 }
 
-:-ms-input-placeholder {  
+#loginform :-ms-input-placeholder {  
 color:#929999; 
 }
 
@@ -159,7 +159,7 @@ color:#fff;
 display:block;
 }
 
-a
+#loginform a
 {
 color:#88887a;
 	  text-decoration:none;
@@ -170,7 +170,7 @@ color:#88887a;
 transition:0.5s ease;
 }
 
-a:hover
+#loginform a:hover
 {
 color:#fff;
 	  margin-left:5px;
