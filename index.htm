@@ -47,15 +47,45 @@ $(document).ready(function() {
 	$(".password").blur(function() {
 		$(".pass-icon").css("left","0px");
 	});
+
+	$("#Menu").click(function(){
+		if($('#navbar').css('display') == 'none')
+			$('#navbar').show();
+		else
+			$('#navbar').hide();
+	});
 });
 </script>
 </head>
-<body style="background-color:black;height:100%;width:100%;overflow:hidden">
+<body style="background-color:black;height:100%;width:100%;overflow:hidden" ng-app="">
 
 	<button id="Start">Start</button>
+	<button id="Menu" >Menu</button>
 	<a id="Loginbutton"  href="#loginform" rel="modal:open" onClick="loginOpen();">Login</a>
 	<div id="logo" style="width:100%;text-align:center">
 		<img src="images/logo.png" style="height:200px;width:90%;" />
+	</div>
+	<div id="navbar" style="display:none">
+		<div  id="go_home" style="top:2%;right:70px;position:fixed">
+				<img src="gokun.png" style="height:15%"/>
+		    	<!--<p style="color:black;">Home</p>-->
+		</div>
+		<div  id="Login" style="top:22%;right:70px;position:fixed">
+				<img src="gohan.png" style="height:15%"/>
+		    	<!--<p style="color:black;">Login</p>-->
+		</div>
+		<div  id="Logout" style="top:42%;right:70px;position:fixed">
+				<img src="vegeta.png" style="height:15%"/>
+		    	<!--<p style="color:black;">Logout</p>-->
+		</div>
+		<div id="Upload" style="top:62%;right:70px;position:fixed">
+				<img src="trunks.png" style="height:15%"/>
+		    	<!--<p style="color:black;">Upload</p>-->
+		</div>
+		<div id="Record" style="top:82%;right:70px;position:fixed">
+				<img src="beko.png" style="height:15%"/>
+		    	<!--<p style="color:black;">Record</p>-->
+		</div>
 	</div>
 	<div id="back" style="height:100%;z-index:-1;top:150px;left:-200px;position:fixed" >
 		<img src="images/background.png" style="height:100%"/>
