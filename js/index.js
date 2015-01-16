@@ -42,13 +42,16 @@ $( function(ready) {
 
 	 	}, false);
  	}
+
+  	$('.counter2').jOdometer({increment: 9, counterStart:'00000', counterEnd:99999, numbersImage: 'images/jodometer-numbers.png', delayTime: 10, speed: 250, spaceNumbers: 2});
 	
 	$("#Start").click(function(){
 		$.ajax({
 			url: "compare.php",
 			success: function (res) {
 				alert(res);
-        		$('.counter2').jOdometer({increment: 9, counterStart:'00000', counterEnd:res, numbersImage: 'images/jodometer-numbers.png', delayTime: 10, speed: 250, spaceNumbers: 2});
+				$('.counter2').hide();
+        		$('.counter3').jOdometer({increment: 9, counterStart:'000', counterEnd:res, numbersImage: 'images/jodometer-numbers2.png', delayTime: 10, speed: 250, spaceNumbers: 2, widthNumber: 24, heightNumber: 53});
 			}
 		});
 			$("#glass").animate({
