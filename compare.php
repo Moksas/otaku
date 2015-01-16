@@ -1,4 +1,5 @@
 <?php
+	session_start();
 /**
  *  * 圖片特徵 Hash 計算
  *   *
@@ -24,18 +25,27 @@
  *               echo ImageHash::isSimilar($hashA, $hashB);
  *                  */
 
-	function docompare($comparefile){
+	
 		require_once("db_const.php");
 		$result=$mysqli->query("SELECT * FROM `standard` ");
-		$hashA=ImageHash::pHash($comparefile);
+		$hashA=ImageHash::pHash("../newupload/".$_SESSION['CompareFile']);
+	//	echo'</br> compare filename'.$_SESSION['CompareFile'];
 		$finalresult=0;
 		while($rows=$result->fetch_array()){
-			echo $rows['id']."\n";
+			//echo $rows['id']."\n";
 			$hashB=ImageHash::pHash($rows['picd']);
 			$finalresult+= ImageHash::isSimilar($hashA, $hashB);
 		}
-		return $finalresult;
-	} 
+	
+		
+	
+		$returnresult =20000-($finalresult)*14;
+		
+		if($returnresult<=0)
+			$returnresult=0;
+
+		echo $returnresult;
+	 
 
 class ImageHash {
 
