@@ -39,7 +39,7 @@
 	
 		
 	
-		$returnresult =20000-($finalresult)*14;
+		$returnresult =999-($finalresult);
 		
 		if($returnresult<=0)
 			$returnresult=0;
