@@ -36,7 +36,7 @@
 			z-index: 100;
 			display: none;
 		}
-		.RightButton:hover{
+		.RightButton *:hover{
 			cursor: pointer;
 		}
 		.RightButton > p{
@@ -67,6 +67,7 @@ $(document).ready(function() {
 	$("#Menu").click(function(){
 		if($('#navbar').css('right') == '-150px'){
 			$('.RightButton').show();
+			$('.HideButton').hide();
 			$('#navbar').animate({right:"50"},1000);
 		}
 		else{
@@ -89,23 +90,35 @@ $(document).ready(function() {
 		    	<p>Home</p>
 				<img src="images/gokun.png" style="height:100%"/>
 		</div>
-		<div class="RightButton" id="Login" <?php if(!$_SESSION['id']) echo 'style="display:none"'; ?>>
+<?php 
+	if(!isset($_SESSION['id'])){
+		echo '
+		<div class="RightButton" id="Login" >
 		    	<p>Login</p>
 			<a id="Loginbutton"  href="#loginform" rel="modal:open" onClick="loginOpen();">
 				<img src="images/gohan.png" style="height:100%"/>
 			</a>
-		</div>
-		<div class="RightButton" id="Logout" onClick="location.replace('logout.php');" <?php if($_SESSION['id']) echo 'style="display:none"'; ?>>
+		</div>';
+	}
+	else{
+		echo '
+		<div class="RightButton" id="Logout" onClick="location.replace(\'logout.php\');" >
 		    	<p>Logout</p>
 				<img src="images/vegeta.png" style="height:100%"/>
-		</div>
+		</div>';
+	}
+?>
 		<div class="RightButton" id="Upload" >
 		    <p>Upload</p>
 			<label for="file-input">
 				<img src="images/trunks.png" style="height:100%"/>
 			</label>
 		</div>
-		<div class="RightButton" id="Record" >
+		<div class="RightButton HideButton" id="Start">
+		    	<p>Start</p>
+				<img src="images/dragonball.png" style="height:100%"/>
+		</div>
+		<div class="RightButton" id="Record" onClick="location.href='user.php';">
 		    	<p>Record</p>
 				<img src="images/beko.png" style="height:100%"/>
 		</div>
@@ -120,7 +133,7 @@ $(document).ready(function() {
 		
 	</div>
 
-	<div id="upload_button" style="top:330px;right:120px;position:fixed">
+	<div id="upload_button" style="top:280px;right:220px;position:fixed">
 
 		<form action="upload.php" id="FormUpload" method="post" enctype="multipart/form-data">
 			<label for="file-input">
@@ -148,7 +161,7 @@ $(document).ready(function() {
     <!--END SLIDE-IN ICONS-->
 
 <!--LOGIN FORM-->
-<form name="login-form" class="login-form" action="" method="post">
+<form name="login-form" id="LoginLogin" class="login-form" action="" method="post">
 
 	<!--HEADER-->
     <div class="header" style="height:76px">
@@ -159,15 +172,20 @@ $(document).ready(function() {
 	
 	<!--CONTENT-->
     <div class="content">
-	<!--USERNAME--><input name="username" type="text" class="input username" value="Username" onfocus="this.value=''" /><!--END USERNAME-->
-    <!--PASSWORD--><input name="password" type="password" class="input password" value="Password" onfocus="this.value=''" /><!--END PASSWORD-->
+	<!--USERNAME--><input id="text" type="text" class="input username" value="Username" onfocus="this.value=''" /><!--END USERNAME-->
+    <!--PASSWORD--><input id="password" type="password" class="input password" value="Password" onfocus="this.value=''" /><!--END PASSWORD-->
+	<span id="formHide" style="display:none">
+		<input type="password" id="password2" class="input" placeholder="password again" value="" style="margin-top:25px">
+		<input type="text" id="name" class="input" placeholder="name" value="" style="margin-top:25px">
+	
+	</span>
     </div>
     <!--END CONTENT-->
     
     <!--FOOTER-->
     <div class="footer">
-    <!--LOGIN BUTTON--><input type="submit" name="submit" value="Login" class="button" /><!--END LOGIN BUTTON-->
-    <!--REGISTER BUTTON--><input type="submit" name="submit" value="Register" class="register" /><!--END REGISTER BUTTON-->
+    <!--LOGIN BUTTON--><input id="LoginB" type="submit" name="submit" value="Login" class="button" /><!--END LOGIN BUTTON-->
+    <!--REGISTER BUTTON--><input id="note" type="submit" name="submit" value="Register" class="register" /><!--END REGISTER BUTTON-->
     </div>
     <!--END FOOTER-->
 

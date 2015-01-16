@@ -22,23 +22,13 @@ $( function(ready) {
 				};
 				reader.readAsDataURL(file);
 			}
-	if (formdata) {
-		formdata.append("file[]", file);
-	}
-		
 			if (formdata) {
-				$.ajax({
-					url: "upload.php",
-					type: "POST",
-					data: formdata,
-					processData: false,
-					contentType: false,
-					success: function (res) {
-			//			document.getElementById("response").innerHTML = res; 
-						alert(res);
-					}
-				});
+				formdata.append("file[]", file);
 			}
+			$("#Upload").attr('class', 'RightButton HideButton');
+			$("#Upload").hide();
+			$("#Start").attr('class', 'RightButton');
+			$("#Start").show();
 
 	 	}, false);
  	}
@@ -46,18 +36,31 @@ $( function(ready) {
   	$('.counter2').jOdometer({increment: 9, counterStart:'00000', numbersImage: 'images/jodometer-numbers.png', delayTime: 100, speed: 250, spaceNumbers: 2});
 	
 	$("#Start").click(function(){
-		$.ajax({
-			url: "compare.php",
-			success: function (res) {
-				$('.counter2').hide();
-        		$('.counter3').jOdometer({increment: 1, counterStart:'000', counterEnd:res, numbersImage: 'images/jodometer-numbers2.png', delayTime: 50, speed: 250, spaceNumbers: 10, widthNumber: 48, heightNumber: 106});
-			}
-		});
-			$("#glass").animate({
-				width: "70%",
-				left: "20%",
-				top: "10%"
+		if (formdata) {
+			$.ajax({
+				url: "upload.php",
+				type: "POST",
+				data: formdata,
+				processData: false,
+				contentType: false,
+				success: function (res) {
+					alert(res);
+					$.ajax({
+						url: "compare.php",
+						success: function (res) {
+							$('.counter2').hide();
+    			    		$('.counter3').jOdometer({increment: 1, counterStart:'000', counterEnd:res, numbersImage: 'images/jodometer-numbers2.png', delayTime: 50, speed: 250, spaceNumbers: 10, widthNumber: 48, heightNumber: 106});
+							$("#glass").animate({
+								width: "70%",
+								left: "20%",
+								top: "10%"
+							});
+						}
+					});
+				}
 			});
+		}
+		else alert("something wrong");
 		
 	});
 });

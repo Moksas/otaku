@@ -29,7 +29,7 @@ jQuery(window).load(function(){
 <?php
 	session_start();
 	 require_once("db_const.php");
-	$sql="SELECT *FROM `userpic`WHERE `user` = '".$_SESSION['username']."'";
+	$sql="SELECT *FROM `userpic`WHERE `user` = '".$_SESSION['id']."'";
 	 $result=$mysqli->query($sql);
 	$i=1;
 	 while($rows=$result->fetch_array())
