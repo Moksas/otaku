@@ -59,9 +59,11 @@ function userSubmit(event){
 	});
 		
 	request.success(function( result ){
-		if(result=="yes")
+		if(result=="yes"){
 	//		location.href="user.php";
 			alert("Login succeed!!");
+			location.replace("./");
+		}
 		else
 			alert(result);
 	});

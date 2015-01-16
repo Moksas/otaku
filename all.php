@@ -14,7 +14,7 @@
 			z-index: 100;
 			display: none;
 		}
-		.RightButton *, #Menu:hover{
+		.RightButton *,#Menu:hover{
 			cursor: pointer;
 		}
 		.RightButton > p{
@@ -80,18 +80,19 @@ jQuery(window).load(function(){
 		    	<p>Logout</p>
 				<img src="images/vegeta.png" style="height:100%"/>
 		</div>';
+		echo '
+		<div class="RightButton" id="Record" onClick="location.href=\'user.php\';">
+		    	<p>Record</p>
+				<img src="images/beko.png" style="height:100%"/>
+		</div>';
 	}
 ?>
-		<div class="RightButton" id="AllRecords" onClick="location.href='./all.php'">
-		    	<p>All Records</p>
-				<img src="images/kerlin.png" style="height:100%"/>
-		</div>
 	</div>
 
 	<div id="pricing-table" class="clear" style="overflow-x:auto">
 <?php
 	 require_once("db_const.php");
-	$sql="SELECT *FROM `userpic`WHERE `user` = '".$_SESSION['id']."'";
+	$sql="SELECT * FROM `userpic`";
 	 $result=$mysqli->query($sql);
 	$i=1;
 	 while($rows=$result->fetch_array())

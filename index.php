@@ -36,7 +36,7 @@
 			z-index: 100;
 			display: none;
 		}
-		.RightButton *:hover{
+		.RightButton *,#Menu:hover{
 			cursor: pointer;
 		}
 		.RightButton > p{
@@ -81,12 +81,12 @@ $(document).ready(function() {
 <?php session_start(); ?>
 <body style="background-color:black;height:100%;width:100%;overflow:hidden">
 
-	<button id="Menu">Menu</button>
-	<div id="logo" style="width:100%;text-align:center">
+	<div id="logo" style="width:100%;">
 		<img src="images/logo.png" style="height:200px;width:90%;" />
+		<img src="images/dragon.jpg" style="width: 8%" id="Menu"/>
 	</div>
 	<div id="navbar" style="height:100%;right:-150px;top:10px;position:fixed;">
-		<div class="RightButton" id="go_home" >
+		<div class="RightButton" id="go_home" onClick="location.href='./'">
 		    	<p>Home</p>
 				<img src="images/gokun.png" style="height:100%"/>
 		</div>
@@ -106,8 +106,7 @@ $(document).ready(function() {
 		    	<p>Logout</p>
 				<img src="images/vegeta.png" style="height:100%"/>
 		</div>';
-	}
-?>
+		echo '
 		<div class="RightButton" id="Upload" >
 		    <p>Upload</p>
 			<label for="file-input">
@@ -118,9 +117,15 @@ $(document).ready(function() {
 		    	<p>Start</p>
 				<img src="images/dragonball.png" style="height:100%"/>
 		</div>
-		<div class="RightButton" id="Record" onClick="location.href='user.php';">
+		<div class="RightButton" id="Record" onClick="location.href=\'user.php\';">
 		    	<p>Record</p>
 				<img src="images/beko.png" style="height:100%"/>
+		</div>';
+	}
+?>
+		<div class="RightButton" id="AllRecords" onClick="location.href='./all.php'">
+		    	<p>All Records</p>
+				<img src="images/kerlin.png" style="height:100%"/>
 		</div>
 	</div>
 	<div id="back" style="height:100%;z-index:-1;top:150px;left:-200px;position:fixed" >
