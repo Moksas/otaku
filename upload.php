@@ -1,19 +1,19 @@
 <?php
- session_start();
+// session_start();
 include("compare.php");
 $max_size = 3*1024*1024; //限制可檔案大小為3MB
 $limitedext = array("bmp","gif","jpg","jpeg","png");//設定可上傳的檔案類型(副檔名)
 
 $File_Extension = explode(".", $_FILES['file']['name']); 
 $File_Extension = $File_Extension[count($File_Extension)-1];
-//$_SESSION['username']="test";
-//echo'go';
-//if(isset($_SESSION['username']))
-//{
-//	echo "Please login before upload";
+$_SESSION['username']='testname';
+    echo'Hello world';
+if(!(isset($_SESSION['username'])))
+{
+	echo "Please login before upload";
 
-//}
-//else
+}
+else
    	if($_FILES["file"]["error"]>0){
 
 	//echo 'test'.$_FILES['file']['error'];
@@ -22,6 +22,7 @@ $File_Extension = $File_Extension[count($File_Extension)-1];
 else if(($max_size > 0) && ($_FILES['file']['size'] > $max_size)){
 
 	echo "您上傳的檔案大小大於".$max_size."位元組";
+
 
 	exit;
 
@@ -52,7 +53,7 @@ else {
 		move_uploaded_file($_FILES['file']['tmp_name'], "../newupload/"
 			.$uniq_filename.'.'.$File_Extension);
 
-		$_SESSION['CompareFile']=$uniq_filename.'.'$File_Extension;
+		$_SESSION['CompareFile']=$uniq_filename.'.'.$File_Extension;
 		echo $_SESSION['CompareFile'];
 	}
 //	echo	docompare("../newupload/".$uniq_filename.'.'.$File_Extension);
