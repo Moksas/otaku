@@ -43,15 +43,14 @@ $( function(ready) {
 	 	}, false);
  	}
 
-  	$('.counter2').jOdometer({increment: 9, counterStart:'00000', counterEnd:99999, numbersImage: 'images/jodometer-numbers.png', delayTime: 10, speed: 250, spaceNumbers: 2});
+  	$('.counter2').jOdometer({increment: 9, counterStart:'00000', numbersImage: 'images/jodometer-numbers.png', delayTime: 100, speed: 250, spaceNumbers: 2});
 	
 	$("#Start").click(function(){
 		$.ajax({
 			url: "compare.php",
 			success: function (res) {
-				alert(res);
 				$('.counter2').hide();
-        		$('.counter3').jOdometer({increment: 9, counterStart:'000', counterEnd:res, numbersImage: 'images/jodometer-numbers2.png', delayTime: 10, speed: 250, spaceNumbers: 2, widthNumber: 24, heightNumber: 53});
+        		$('.counter3').jOdometer({increment: 1, counterStart:'000', counterEnd:res, numbersImage: 'images/jodometer-numbers2.png', delayTime: 50, speed: 250, spaceNumbers: 10, widthNumber: 48, heightNumber: 106});
 			}
 		});
 			$("#glass").animate({
