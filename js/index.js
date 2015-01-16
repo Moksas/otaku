@@ -47,7 +47,8 @@ $( function(ready) {
 		$.ajax({
 			url: "compare.php",
 			success: function (res) {
-        		$('.counter2').jOdometer({increment: 9, counterStart:'00000', counterEnd:res, numbersImage: 'images/jodometer-numbers.png', delayTime: 100, speed: 250, spaceNumbers: 2});
+				alert(res);
+        		$('.counter2').jOdometer({increment: 9, counterStart:'00000', counterEnd:res, numbersImage: 'images/jodometer-numbers.png', delayTime: 10, speed: 250, spaceNumbers: 2});
 			}
 		});
 			$("#glass").animate({
