@@ -42,6 +42,21 @@ $( function(ready) {
 
 	 	}, false);
  	}
+	
+	$("#Start").click(function(){
+		$.ajax({
+			url: "compare.php",
+			success: function (res) {
+        		$('.counter2').jOdometer({increment: 9, counterStart:'00000', counterEnd:res, numbersImage: 'images/jodometer-numbers.png', delayTime: 100, speed: 250, spaceNumbers: 2});
+			}
+		});
+			$("#glass").animate({
+				width: "70%",
+				left: "20%",
+				top: "10%"
+			});
+		
+	});
 });
 
 
