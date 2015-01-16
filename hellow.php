@@ -1,9 +1,0 @@
-<?php
-
-
-echo 'Hellow world';
-
-
-
-
-?>
