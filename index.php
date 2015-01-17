@@ -124,7 +124,7 @@ $(document).ready(function() {
 	}
 ?>
 		<div class="RightButton" id="AllRecords" onClick="location.href='./all.php'">
-		    	<p>All Records</p>
+		    	<p style="right:-18px;"><br/>All Records</p>
 				<img src="images/kerlin.png" style="height:100%"/>
 		</div>
 	</div>
