@@ -49,7 +49,7 @@ $( function(ready) {
 						url: "compare.php",
 						success: function (res) {
 							$('.counter2').hide();
-    			    		$('.counter3').jOdometer({increment: 1, counterStart:'000', counterEnd:res, numbersImage: 'images/jodometer-numbers2.png', delayTime: 50, speed: 250, spaceNumbers: 10, widthNumber: 48, heightNumber: 106});
+    			    		$('.counter3').jOdometer({increment: 1, counterStart:'000', counterEnd:res, numbersImage: 'images/jodometer-numbers2.png', delayTime: 50, speed: 50, spaceNumbers: 10, widthNumber: 48, heightNumber: 106});
 							$("#glass").animate({
 								width: "70%",
 								left: "20%",
