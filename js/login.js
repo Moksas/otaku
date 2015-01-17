@@ -8,11 +8,12 @@ $(document).ready( function() {
 	 return false;
   });
   $('#note').click(function(){
-	 $('#mainlogin').animate({
-		 height: 250
+	 $('#loginform').animate({
+		 height: 500
 	 }, 500);
 	 $('#formHide').show();
 	 $('#note').hide();
+	 $('#LoginB').val("Register");
   });
   $("#LoginLogin").on('submit', userSubmit);
   /* user */
@@ -20,9 +21,10 @@ $(document).ready( function() {
 });
 
 function loginOpen(){
-  $('#mainlogin').height(170);
+  $('#loginform').height(170);
   $('#formHide').hide();
   $('#note').show();
+  $('#LoginB').val("Login");
 }
 
 function userSubmit(event){
@@ -57,8 +59,11 @@ function userSubmit(event){
 	});
 		
 	request.success(function( result ){
-		if(result=="yes")
-			location.href="user.php";
+		if(result=="yes"){
+	//		location.href="user.php";
+			alert("Login succeed!!");
+			location.replace("./");
+		}
 		else
 			alert(result);
 	});
