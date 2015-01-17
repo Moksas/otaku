@@ -25,7 +25,7 @@
  *               echo ImageHash::isSimilar($hashA, $hashB);
  *                  */
 
-	
+	if(isset($_SESSION['CompareFile'])){	
 		require_once("db_const.php");
 		$result=$mysqli->query("SELECT * FROM `standard` ");
 		$hashA=ImageHash::pHash("../newupload/".$_SESSION['CompareFile']);
@@ -47,7 +47,12 @@
 	              `filename` ='".$_SESSION['CompareFile']."'";
 		$result=$mysqli->query($sql);
 		echo $returnresult;
-	 
+	}
+	else 
+	{
+	echo -1;
+	}
+
 
 class ImageHash {
 
